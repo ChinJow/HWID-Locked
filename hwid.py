@@ -5,16 +5,16 @@ import sys
 import os
 
 hwid = str(str(subprocess.check_output('wmic csproduct get uuid')).strip().replace(r"\r", "").split(r"\n")[1].strip())
-r = requests.get("ลิงค์ PastBin ที่เก็บ HWID")
+e = requests.get("ลิงค์ PastBin ที่เก็บ HWID")
 
 def printSlow(text):
     for char in text:
         print(char, end="")
         sys.stdout.flush()
-        time.sleep(0.1)
+        time.sleep(0.3)
 
-def Main_Program():
-    if hwid in r.text:
+def Main():
+    if hwid in e.text:
         os.system('cls' if os.name == 'nt' else 'clear')
         printSlow("[*] Let Fun")
         time.sleep(1.5)
@@ -33,4 +33,4 @@ def Main_Program():
     sys.exit()
 
 if __name__ == "__main__":
-    Main_Program()
+    Main()
